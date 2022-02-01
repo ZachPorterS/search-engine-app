@@ -22,11 +22,9 @@ export default Search;
 /* Fetch search data using Google's custom search api */
 export async function getServerSideProps(context) {
     const startIndex = context.query.start || '0';
-    const API_KEY = 'AIzaSyCzig1axd5p1TG512r5S2InwjOaXwo_NC4';
-    const CONTEXT_KEY = 'c45b4a0a8fc877f80';
     
     const data = await fetch(
-        `https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CONTEXT_KEY}&q=${context.query.term}&start=${startIndex}`
+        `https://www.googleapis.com/customsearch/v1?key=${process.env.API_KEY}&cx=${process.env.CONTEXT_KEY}&q=${context.query.term}&start=${startIndex}`
         ).then(response => response.json());
 
     /* Pass result after server rendered */
