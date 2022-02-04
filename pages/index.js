@@ -18,7 +18,13 @@ export default function Home() {
     /* Send user to search page if term exists */
     router.push(`/search?term=${term}`);
   }
-
+ 
+  const googleStore = () => {
+    router.push('https://store.google.com/US?utm_source=hp_header&utm_medium=google_ooo&utm_campaign=GS100042&hl=en-US');
+  }
+  const aboutGoogleAPI = () => {
+    router.push('https://developers.google.com/custom-search/v1/overview');
+  }
   return (
     <div className='flex flex-col justify-center h-screen'>
       <Head>
@@ -29,8 +35,8 @@ export default function Home() {
       <header className='flex w-full p-4 justify-between text-sm text-zinc-900'>
         {/* Left side of the page */}
         <div className='flex space-x-4 items-center'>
-          <p className='link'>About</p>
-          <p className='link'>Store</p>
+          <p className='link' onClick={aboutGoogleAPI}>About</p>
+          <p className='link' onClick={googleStore}>Store</p>
         </div>
 
         {/* Right side of the page */}
