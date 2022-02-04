@@ -18,12 +18,14 @@ export default function Home() {
     /* Send user to search page if term exists */
     router.push(`/search?term=${term}`);
   }
- 
   const googleStore = () => {
     router.push('https://store.google.com/US?utm_source=hp_header&utm_medium=google_ooo&utm_campaign=GS100042&hl=en-US');
   }
   const aboutGoogleAPI = () => {
     router.push('https://developers.google.com/custom-search/v1/overview');
+  }
+  const gmail = () => {
+    router.push('https://mail.google.com');
   }
   return (
     <div className='flex flex-col justify-center h-screen'>
@@ -41,8 +43,8 @@ export default function Home() {
 
         {/* Right side of the page */}
         <div className='flex space-x-4 items-center'>
-          <p className='link'>Gmail</p>
-          <p className='link'>Images</p>
+          <p className='link' onClick={gmail}>Gmail</p>
+          <p className='link' onClick={'./'}>Images</p>
           <ViewGridIcon className='h-10 w-10 p-2 
             rounded-full hover:bg-gray-200 cursor-pointer' />
           <Avatar url='https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn.britannica.com%2F84%2F206384-050-00698723%2FJavan-gliding-tree-frog.jpg&f=1&nofb=1'/>
